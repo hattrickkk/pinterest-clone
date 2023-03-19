@@ -1,0 +1,151 @@
+.header {
+	padding: 30px 30px;
+
+	&__inner {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+	}
+
+	&__logo {
+		img {
+			max-width: 50px;
+		}
+	}
+
+	&__search {
+		flex: 1 0 400px;
+		padding: 0 60px;
+
+		&-input {
+			padding: 15px;
+			border-radius: 10px;
+			display: block;
+			width: 100%;
+			text-align: center;
+			background-color: #ecdde0;
+		}
+	}
+
+	&__dropdown {
+		flex: 0 1 200px;
+		position: relative;
+
+		.dropdown {
+			position: relative;
+			z-index: 1;
+			cursor: pointer;
+
+			&__select {
+				&:hover {
+					background-color: #9f071e;
+				}
+
+				background-color: #E60023;
+				border-radius: 5px;
+				padding: 15px 20px 15px 15px;
+				display: flex;
+				justify-content: space-between;
+				align-items: center;
+				transition: background-color 0.3s;
+
+				.dropdown__selected {
+					color: white;
+				}
+
+				.dropdown__switch {
+					width: 0;
+					height: 0;
+					border-left: 5px solid transparent;
+					border-right: 5px solid transparent;
+					border-top: 6px solid white;
+					transition: 0.3s;
+					margin: 0 0 0 15px;
+				}
+			}
+
+
+			.menu {
+				background-color: rgb(248, 243, 245);
+				padding: 10px;
+				border-radius: 0 0 5px 5px;
+				position: absolute;
+				width: 100%;
+				border: 2px solid red;
+
+				opacity: 0;
+				display: none;
+
+				li {
+					padding: 10px;
+					border-radius: 5px;
+					transition: 0.3s linear;
+
+				}
+
+				li:not(:last-child) {
+					margin: 0 0 1px 0;
+				}
+
+				li:hover {
+					background-color: #f4acb9;
+				}
+			}
+		}
+	}
+}
+
+@media screen and (max-width: 678px) {
+	.header {
+
+		&__inner {
+			flex-wrap: wrap;
+		}
+
+		&__logo,
+		&__dropdown {
+			margin: 0 0 40px 0;
+		}
+
+		&__dropdown {
+			margin: 0 0 40px 20px;
+		}
+
+		&__search {
+			order: 3;
+			padding: 0;
+		}
+
+
+	}
+}
+
+@media screen and (max-width: 475px) {
+	.header {
+		&__search {
+			flex: 1 0 200px;
+		}
+
+		&__logo,
+		&__dropdown {
+			margin: 0 0 30px 0;
+		}
+
+		&__dropdown {
+			margin: 0 0 30px 0px;
+		}
+	}
+}
+
+.reverse {
+	transform: rotate(180deg);
+}
+
+.dropdown__menu.menu.active {
+	opacity: 1;
+	display: block;
+}
+
+.dropdown__select.sharp-corner {
+	border-radius: 5px 5px 0 0;
+}

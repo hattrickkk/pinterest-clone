@@ -1,0 +1,161 @@
+.pin__container {
+	display: grid;
+	grid-template-columns: repeat(auto-fill, 300px);
+	grid-auto-rows: 10px;
+
+	justify-content: center;
+
+	.pin {
+		margin: 15px 10px;
+		background-color: #ecdde0;
+
+		padding: 25px;
+		border-radius: 20px;
+
+		&.medium {
+			grid-row-end: span 43;
+		}
+
+		&.small {
+			grid-row-end: span 35;
+		}
+
+		&.big {
+			grid-row-end: span 50;
+		}
+
+
+		&__inner {
+			// чтоб прижать вниз инфо
+			height: 100%;
+
+			display: flex;
+			flex-direction: column;
+		}
+
+		&__photo {
+			margin: -10px -10px 0 -10px;
+			flex: 1 1 160px;
+			overflow: hidden;
+			border-radius: 15px;
+
+			position: relative;
+
+			img {
+				object-fit: cover;
+				width: 100%;
+				height: 100%;
+			}
+
+			// кнопка +
+			.pin__button {
+				&.added {
+
+					span::after {
+						transform: translate(-3px, -8px) rotate(30deg);
+						height: 19px;
+						left: 25px;
+					}
+
+					span::before {
+						height: 10px;
+						transform: translate(3px, 0px) rotate(-45deg);
+						left: 12px;
+					}
+				}
+
+				&:hover {
+					transform: scale(1.2);
+				}
+
+				span::after,
+				span::before {
+					content: '';
+					width: 4px;
+					height: 25px;
+					border-radius: 10px;
+					background-color: #ecdde0;
+
+					position: absolute;
+					transform: translate(-50%, -50%);
+					left: 50%;
+					top: 50%;
+				}
+
+				span::before {
+					transform: translate(-50%, -50%) rotate(90deg);
+				}
+
+				position: absolute;
+				bottom: 20px;
+				right: 20px;
+
+				width: 40px;
+				height: 40px;
+				background-color: #d3647a;
+				border-radius: 50%;
+				cursor: pointer;
+
+				transition: 0.3s ease;
+			}
+		}
+
+		&__info {
+			flex: 0 0 auto;
+			display: flex;
+			flex-direction: column;
+
+			.pin__author {
+				display: flex;
+				flex-wrap: wrap;
+				align-items: center;
+
+				&-img {
+					width: 50px;
+					align-self: center;
+					border-radius: 50%;
+					overflow: hidden;
+					border: 3px solid rgb(216, 128, 128);
+					flex: 0 0 50px;
+					margin: 0 15px 0 0;
+
+					img {
+						width: 100%;
+						height: 100%;
+						object-fit: cover;
+					}
+				}
+
+				&-name {
+					// padding: 10px 0 0 0;
+				}
+			}
+
+			.pin__title {
+				font-weight: 500;
+				color: rgb(37, 4, 4);
+				padding: 20px 0;
+			}
+		}
+	}
+}
+
+@media screen and (max-width: 340px) {
+	.pin__container {
+		grid-template-columns: repeat(auto-fill, 250px);
+
+		.pin__info {
+			.pin__author {
+				&-img {
+					flex: 0 0 45px;
+				}
+
+				&-name {
+					padding: 10px 0 0 0;
+				}
+			}
+		}
+
+
+	}
+}
